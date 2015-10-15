@@ -1,0 +1,26 @@
+title: "CoderWorld"
+languageCode: "zh-CN"
+baseurl: "http://icodeworld.com"
+disqusShortname: "weiwei"
+MetaDataFormat: "yaml"
+canonifyurls: true
+builddrafts: false
+PaginatePath: paginator
+pygmentsStyle: "default"
+pygmentsUseClasses: true
+disablePathToLower: true 
+hasCJKLanguage: true
+permalinks:
+  posts: /:year/:month/:day/:slug/
+Taxonomies:
+  tag: "tags"
+params:
+  subtitle: "I would like to be a pure Coder."
+  twitter: "https://twitter.com/zhouweiwei_me"
+  github: "https://github.com/zhouweiwei"
+  showsRSS: true
+  ShowTagCloud: true
+  profile: "/images/profile.png"
+  author: "Dream Zhou"
+  copyright: "Copyright (c) 2015. Written by zhouweiwei."
+  analytics: "UA-XXXXXXXX-X"

@@ -1,0 +1,36 @@
+{{ partial "header.html" . }}
+
+
+<!-- Main Section Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<main id="index" role="main">
+  <div class="article-header light-gray"><h1>Recent Articles</h1></div>
+  {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+  {{ range $paginator.Pages }}
+  <div class="summary">
+    <h2><a href="{{ .Permalink }}"><i class="fa fa-lemon-o"></i>&nbsp;{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a></h2>
+    <div class="meta">
+      <i class="fa fa-calendar"></i>&nbsp;&nbsp;{{ .Date.Format "Jan 2, 2006" }} &nbsp;
+      {{ range .Params.tags }}
+        <i class="fa fa-tag"></i>&nbsp;<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+      {{ end }}
+    </div>
+    <p class="pre_read">{{ .Summary }}</p>
+  </div>
+  {{ end }}
+</main>
+
+
+<!-- Paginator Section Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<nav class="pager" role="navigation">
+{{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+{{ if $paginator.HasPrev }}
+<a class="button" href="{{ $paginator.Prev.URL }}"><i class="fa fa-chevron-left"></i>&nbsp;Prev</a>&nbsp;
+{{ end }}
+{{ if $paginator.HasNext }}
+<a class="button" href="{{ $paginator.Next.URL  }}">Next&nbsp;<i class="fa fa-chevron-right"></i></a>
+{{ end }}
+</nav>
+
+{{ partial "footer.html" . }}

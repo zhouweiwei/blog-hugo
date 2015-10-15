@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+  <!-- Main Section Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1><i class="fa fa-lemon-o"></i>&nbsp;{{ .Title }}</h1>
+      <div class="meta">
+        <i class="fa fa-calendar"></i>&nbsp;&nbsp;{{ .Date.Format "Jan 2, 2006" }} &nbsp;
+        {{ range .Params.tags }}
+          <i class="fa fa-tag"></i>&nbsp;<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+        {{ end }}
+      </div>
+    </div>
+    <article>
+
+      {{ .Content }}
+  
+    </article>
+    {{ partial "disqus.html" . }}
+  </main>
+  
+
+{{ partial "footer.html" . }}
